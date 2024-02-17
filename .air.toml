@@ -1,0 +1,25 @@
+# Archivos y directorios para monitorear
+root = "."
+include_ext = ["go"]
+
+# Comandos para ejecutar cuando se detecten cambios
+[build]
+  bin = "tmp/main.exe"
+  cmd = "go build -o ./tmp/main.exe ."
+  args_bin = ["serve", "--config=config-generated.yml", "--port=5151", "--log=./logs/ab.log", "--development", "--debug"]
+  delay = 2200
+  exclude_dir = ["tmp", "releases", "profiling", "api\\v1\\tests", "docker", ".vscode", ".github", "docs"]
+  
+
+[color]
+  app = ""
+  build = "yellow"
+  main = "magenta"
+  runner = "green"
+  watcher = "cyan"
+
+[log]
+  level = "info"
+
+[misc]
+  clean_on_exit = false # elimina el directorio tmp al terminar el proceso de AIR
