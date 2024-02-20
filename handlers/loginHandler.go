@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"text/template"
 )
@@ -28,5 +27,20 @@ func Auth(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	fmt.Fprintf(w, "Nombre enviado: %s", user.Username)
+	// Logica de autenticación
+
+	// Placeholder de autenticación
+	if user.Username == "asdasd" {
+		// Crea el coockie token con un hash identificador
+		http.SetCookie(w, &http.Cookie{
+			Name:  "token",
+			Value: "5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8",
+		})
+
+		// Se dispara un redireccionamiento a la base de la app
+		w.Header().Set("HX-Redirect", "/")
+	}
+
+	// En caso de no atenticar se devuelve error
+	http.Error(w, "Error al autenticar", http.StatusBadRequest)
 }

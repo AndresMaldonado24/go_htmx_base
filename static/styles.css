@@ -1,3 +1,31 @@
-h1{
-	color: brown;
+:root{
+	--black : #1d1d1b;
+	--white : #fffefd;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--black);
+	color: var(--white);
+	font-family: sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.homepage-container {
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--black);
 }
