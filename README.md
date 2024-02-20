@@ -1,5 +1,5 @@
 # go_htmx_base
-Base template for a GO &amp; HTMX project
+Esqueleto de una aplicacion con Go & HTMX
 
 # Channel log
 > **💡** Aqui se detallara la evolución del proyecto
