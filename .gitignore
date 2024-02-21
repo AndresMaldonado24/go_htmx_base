@@ -25,3 +25,9 @@ tmp/
 
 # VScode
 .vscode
+
+# Dot env
+.env
+
+#sessions files
+session_*

@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	hl "github.com/AndresMaldoando24/go_htmx_base/handlers"
-	h "github.com/AndresMaldoando24/go_htmx_base/helpers"
+	m "github.com/AndresMaldoando24/go_htmx_base/middleware"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
@@ -28,13 +28,14 @@ func main() {
 
 	r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	r.With(h.CheckCookie).Route("/", func(r chi.Router) {
+	r.With(m.AuthMiddleware).Route("/", func(r chi.Router) {
 		r.Get("/", hl.Home)
 	})
 
-	r.With(h.CheckCookie).Route("/login", func(r chi.Router) {
+	r.Route("/login", func(r chi.Router) {
 		r.Get("/", hl.Login)
-		r.Post("/", hl.Auth)
+		r.Post("/", hl.LoginHandler)
+		r.Post("/logout", hl.LogoutHandler)
 	})
 
 	log.Println("App running on 8080...")
