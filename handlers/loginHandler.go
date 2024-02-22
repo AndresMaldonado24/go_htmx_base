@@ -24,6 +24,11 @@ func init() {
 		log.Fatalf("Error cargando el archivo .env: %v", err)
 	}
 	Store = sessions.NewFilesystemStore("./sessions", []byte(os.Getenv("SESSION_SECRET")))
+
+	Store.Options = &sessions.Options{
+		MaxAge:   604800, // una semana en segundos
+		HttpOnly: true,
+	}
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {

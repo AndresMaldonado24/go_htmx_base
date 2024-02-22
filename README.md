@@ -15,3 +15,4 @@ En este proyecto, utilizaremos Go como lenguaje de programación principal debid
 | 0.1.0 | Se crea middleware que busca la coockie que identifica al usuario, de no existir lo envia a la pagina de `/login`. Se ajusta la llamada POST del formulario para que cunado sea exitosa redireciones a la base del proyecto.|
 | 0.2.0 | Se agrega el manejo de sesiones en el backend, de esta forma se lograra tener un mayor control de las mismas. Se agrega tambien variables de entorno para obtener de forma segura la key que encripta las sesiones. Se cambia tambien el middleware encargado de revisar si la sesion se encuentra activa mantieniendo la misma funcinalidad del anterior.|
 | 0.2.1 | Se crea la vista para el `/login` |
+| 0.2.2 | Se agrega una semana de duracion para la sesión. Se añade boton de logout de prueba. |
