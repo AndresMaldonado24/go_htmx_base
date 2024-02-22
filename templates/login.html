@@ -12,11 +12,10 @@
 
 <body>
   <main class="full-screen center-content">
-    <form class="mid-screen form-login" hx-post="/login" hx-ext='json-enc' hx-boost="true" hx-swap="none"
-      hx-indicator=".load-indicator">
+    <form class="mid-screen form-login" hx-post="/login" hx-boost="true" hx-swap="none" hx-indicator=".load-indicator">
       <div class="form-field">
-        <label for="">Githun Token</label>
-        <input type="password" class="form-control" name="GhToken">
+        <label for="token">Githun Token</label>
+        <input type="password" class="form-control" name="token">
       </div>
       <button>LOGIN</button>
     </form>
@@ -26,4 +25,3 @@
 
 </html>
 <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-<script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>

@@ -16,3 +16,4 @@ En este proyecto, utilizaremos Go como lenguaje de programación principal debid
 | 0.2.0 | Se agrega el manejo de sesiones en el backend, de esta forma se lograra tener un mayor control de las mismas. Se agrega tambien variables de entorno para obtener de forma segura la key que encripta las sesiones. Se cambia tambien el middleware encargado de revisar si la sesion se encuentra activa mantieniendo la misma funcinalidad del anterior.|
 | 0.2.1 | Se crea la vista para el `/login` |
 | 0.2.2 | Se agrega una semana de duracion para la sesión. Se añade boton de logout de prueba. |
+| 0.2.3 | Se cambia la obtencion de los datos provenientes del formulario. Se agrega validacion para cuando la sesion ya se encuentra iniciada y se trata de logear nuevamente. |

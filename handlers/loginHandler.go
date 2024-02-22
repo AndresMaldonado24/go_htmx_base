@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,10 +10,6 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/joho/godotenv"
 )
-
-type userData struct {
-	GhToken string `json:"ghToken"`
-}
 
 var Store *sessions.FilesystemStore
 
@@ -37,22 +32,21 @@ func Login(w http.ResponseWriter, r *http.Request) {
 }
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	defer r.Body.Close()
-	var user userData
+
+	token := r.PostFormValue("token")
 
 	session, _ := Store.Get(r, "session-name")
 
-	// Se parsea el body a nuestra struc
-	err := json.NewDecoder(r.Body).Decode(&user)
-	if err != nil {
-		http.Error(w, "Error al decodificar el cuerpo de la solicitud", http.StatusBadRequest)
+	// Se realizan validaciones pertinentes
+
+	if session.Values["TOKEN"] != nil {
+		w.Header().Set("HX-Redirect", "/")
+		w.WriteHeader(http.StatusAlreadyReported)
 		return
 	}
 
-	// Se realizan validaciones pertinentes
-
 	// Se guardan los datos de la sesion del usuario
-	session.Values["TOKEN"] = user.GhToken // Simulación de un ID de usuario
+	session.Values["TOKEN"] = token
 	fmt.Println(session.Values["TOKEN"])
 	session.Save(r, w)
 
