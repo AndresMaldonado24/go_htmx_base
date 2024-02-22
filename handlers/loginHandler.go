@@ -13,8 +13,7 @@ import (
 )
 
 type userData struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	GhToken string `json:"ghToken"`
 }
 
 var Store *sessions.FilesystemStore
@@ -48,8 +47,8 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	// Se realizan validaciones pertinentes
 
 	// Se guardan los datos de la sesion del usuario
-	session.Values["user_id"] = user.Username // Simulación de un ID de usuario
-	fmt.Println(session.Values["user_id"])
+	session.Values["TOKEN"] = user.GhToken // Simulación de un ID de usuario
+	fmt.Println(session.Values["TOKEN"])
 	session.Save(r, w)
 
 	// Se hace un redirect a la base del proyecto

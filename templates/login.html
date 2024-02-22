@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="htmx-config" content='{"includeIndicatorStyles": false}'>
+  <link rel="stylesheet" type="text/css" href="/static/styles.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <title>Login</title>
 </head>
+
 <body>
-    <form hx-post="/login" hx-ext='json-enc' hx-boost="true" hx-swap="none">
-        <input type="text" class="form-control" name="Username"> 
-        <input type="password" class="form-control" name="Password">
-        <button>Enter</button>
-    </form>   
+  <main class="full-screen center-content">
+    <form class="mid-screen form-login" hx-post="/login" hx-ext='json-enc' hx-boost="true" hx-swap="none"
+      hx-indicator=".load-indicator">
+      <div class="form-field">
+        <label for="">Githun Token</label>
+        <input type="password" class="form-control" name="GhToken">
+      </div>
+      <button>LOGIN</button>
+    </form>
+  </main>
+  <div class="load-screen load-indicator"><span class="loader"></span></div>
 </body>
+
 </html>
 <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>

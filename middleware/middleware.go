@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/AndresMaldoando24/go_htmx_base/handlers"
@@ -9,9 +10,11 @@ import (
 func AuthMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		session, err := handlers.Store.Get(r, "session-name")
-		user := session.Values["user_id"]
+		token := session.Values["TOKEN"]
 
-		if err != nil || user == nil {
+		fmt.Println(token)
+
+		if err != nil || token == nil {
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
