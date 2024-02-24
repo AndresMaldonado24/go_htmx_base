@@ -10,9 +10,30 @@
 </head>
 
 <body>
-	<main class="homepage-container">
-		<h1>Infinitools</h1>
-		<button hx-post="/login/logout" hx-swap="none">LOGOUT</button>
+	<header>
+		<div class="header-actions">
+			<button hx-post="/login/logout" hx-swap="none">
+				<svg class="with-icon_icon__MHUeb" data-testid="geist-icon" fill="none" height="24"
+					shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+					stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"
+					style="color:var(--geist-foreground);width:24px;height:24px">
+					<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+					<path d="M16 17l5-5-5-5" />
+					<path d="M21 12H9" />
+				</svg>
+			</button>
+		</div>
+		<div class="header-info">
+			<h1>DEMO APP</h1>
+		</div>
+		<div class="header-profile">
+			<p>{{ .username }}</p>
+		</div>
+	</header>
+	<main>
+		<nav class="nav-tools">
+			<a href="/instance">Change Instance</a>
+		</nav>
 	</main>
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -11,11 +11,20 @@
 </head>
 
 <body>
-  <main class="full-screen center-content">
-    <form class="mid-screen form-login" hx-post="/login" hx-boost="true" hx-swap="none" hx-indicator=".load-indicator">
+  <header>
+    <div class="header-actions">
+    </div>
+    <div class="header-info">
+      <h1>Login Page</h1>
+    </div>
+    <div class="header-profile">
+    </div>
+  </header>
+  <main>
+    <form class="form-login" hx-post="/login" hx-boost="true" hx-swap="none" hx-indicator=".load-indicator">
       <div class="form-field">
         <label for="token">Githun Token</label>
-        <input type="password" class="form-control" name="token">
+        <input type="password" class="form-control" name="token" id="token">
       </div>
       <button>LOGIN</button>
     </form>

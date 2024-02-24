@@ -38,6 +38,11 @@ func main() {
 		r.Post("/logout", hl.LogoutHandler)
 	})
 
+	r.With(m.AuthMiddleware).Route("/instance", func(r chi.Router) {
+		r.Get("/", hl.Instance)
+		r.Post("/change", hl.Change)
+	})
+
 	log.Println("App running on 8080...")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }

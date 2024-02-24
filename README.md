@@ -17,3 +17,4 @@ En este proyecto, utilizaremos Go como lenguaje de programación principal debid
 | 0.2.1 | Se crea la vista para el `/login` |
 | 0.2.2 | Se agrega una semana de duracion para la sesión. Se añade boton de logout de prueba. |
 | 0.2.3 | Se cambia la obtencion de los datos provenientes del formulario. Se agrega validacion para cuando la sesion ya se encuentra iniciada y se trata de logear nuevamente. |
+| 0.3.0 | Se agrega nueva pantalla `/instance` la cual toma datos desde un formulario para realizar una accion. Se agregaa un header para las templates en la cual se carga los datos del prefirl de la sesión. Se agregan botones al header para cerrar sesion y volver al home.|
